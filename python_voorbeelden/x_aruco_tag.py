@@ -3,7 +3,7 @@ import numpy as np
 
 def main():
     # Load the predefined dictionary of ArUco markers
-    aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_50)
+    aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_6X6_250)
 
     # Create a detector parameters object
     parameters = cv2.aruco.DetectorParameters()
