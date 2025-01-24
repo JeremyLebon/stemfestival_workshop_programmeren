@@ -23,12 +23,18 @@ def main():
         # Define the range for red color in HSV
         lower_red_1 = np.array([0, 70, 50])     # Lower red hue
         upper_red_1 = np.array([10, 255, 255])  # Upper red hue
-      
+        lower_red_2 = np.array([170, 70, 50])   # Red hue wraps around (second range)
+        upper_red_2 = np.array([180, 255, 255])
+
         # Create masks for both ranges of red
         mask_red_1 = cv2.inRange(hsv_frame, lower_red_1, upper_red_1)
-     
+        mask_red_2 = cv2.inRange(hsv_frame, lower_red_2, upper_red_2)
+
+        # Combine the masks to capture all red shades
+        red_mask = cv2.bitwise_or(mask_red_1, mask_red_2)
+
         # Apply the mask to the original frame
-        red_only = cv2.bitwise_and(frame, frame, mask=mask_red_1)
+        red_only = cv2.bitwise_and(frame, frame, mask=red_mask)
 
         # Display the original frame and the red-filtered frame
         cv2.imshow('Original', frame)

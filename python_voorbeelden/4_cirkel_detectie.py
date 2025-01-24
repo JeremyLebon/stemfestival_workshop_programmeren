@@ -31,7 +31,7 @@ def main():
             param1=50,                     # Higher threshold for Canny edge detection
             param2=30,                     # Threshold for center detection (lower is more sensitive)
             minRadius=5,                  # Minimum circle radius
-            maxRadius=20                  # Maximum circle radius
+            maxRadius=30                  # Maximum circle radius
         )
 
         # If circles are detected, draw them
